@@ -1,0 +1,108 @@
+<div class="container">
+  <mat-toolbar class="tool1" color="primary">
+    <span
+      ><a href="https://www.veenaworld.com/"
+        ><img
+          src="assets/images/logo.png"
+          alt="logo"
+          width="75"
+          height="50" /></a
+    ></span>
+
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon class="menu" aria-hidden="false" aria-label="Example home icon"
+        >menu</mat-icon
+      >
+    </button>
+
+    &nbsp; &nbsp;
+    <span><b>CATAGORIES</b></span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+
+  <br />
+
+  <mat-toolbar class="tool2">
+    <span><b>Home</b></span>
+    <mat-icon class="arrow1">chevron_right</mat-icon>
+    <span><b>Catagories</b></span>
+    <!--
+    <mat-icon class="arrow1">chevron_right</mat-icon>
+    <span><b>Catagories</b></span>
+    -->
+  </mat-toolbar>
+</div>
+
+<br />
+<br />
+
+<div class="col md-8">
+  <span class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchValue"
+      id="search"
+      placeholder="search for Catagory"
+    />
+  </span>
+  <form class="CatagoryInput" [formGroup]="catagoryForm" (submit)="onSubmit()">
+    <input type="hidden" formControlName="_id" [(ngModel)]="_id" />
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Enter the Catagory</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="catagoryFormControl"
+        [(ngModel)]="catagoryField"
+        placeholder="Ex: Booking & payment"
+      />
+      <mat-error
+        *ngIf="catagoryForm.controls['catagoryFormControl'].errors?.required"
+      >
+        Catagory is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button class="btn" type="submit" [disabled]="catagoryForm.invalid">
+      Submit
+    </button>
+  </form>
+</div>
+
+<div *ngIf="catagories.length == 0; else elseBlock">
+  <h3 style="margin-left: 520px; margin-top: 20px">
+    <i><b>****No Current Catagories****</b></i>
+  </h3>
+</div>
+
+<ng-template #elseBlock>
+  <div calss="data">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>CATAGORIES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let catagory of catagories
+              | searchfilter: searchValue
+              | paginate: { itemsPerPage: 7, currentPage: p }
+          "
+        >
+          <td>{{ catagory.catagoryField }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls
+      class="paginator"
+      [maxSize]="maxSize"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+  </div>
+</ng-template>

@@ -1,0 +1,100 @@
+<div class="container">
+  <mat-toolbar class="tool">
+    <span>{{
+      faqForm.controls["_id"].value ? "Modify FAQ" : "Add new FAQ"
+    }}</span>
+    <!--<span>Add New Faq</span>-->
+    <span class="fill-remaining-space"></span>
+    <button
+      class="btn-dialog-close"
+      mat-stroked-button
+      (click)="onClose()"
+      tabIndex="-1"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+
+<form [formGroup]="faqForm" (submit)="onSave()">
+  <input type="hidden" formControlName="_id" />
+  <p>
+    <mat-form-field class="ques-form-field" appearance="fill">
+      <mat-label style="color: black; font-size: large"
+        ><b>Question</b></mat-label
+      >
+      <input
+        type="text"
+        matInput
+        formControlName="quesFormControl"
+        [(ngModel)]="question"
+        placeholder="Type your question"
+      />
+      <mat-error *ngIf="faqForm.controls['quesFormControl'].errors?.required"
+        >Question is Mandatory</mat-error
+      >
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="answer-form-field" appearance="fill">
+      <mat-label style="color: black; font-size: large"
+        ><b>Description</b></mat-label
+      >
+      <textarea
+        matInput
+        formControlName="ansFormControl"
+        [(ngModel)]="description"
+        placeholder="Type your answer"
+      ></textarea>
+      <mat-error *ngIf="faqForm.controls['ansFormControl'].errors?.required"
+        >Description is Mandatory</mat-error
+      >
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="catagory-form-field">
+      <mat-label style="color: black; font-size: large"
+        ><b>Catagory Name:</b></mat-label
+      >
+      <mat-select
+        placeholder="Catagory"
+        formControlName="catagoryFormControl"
+        [(ngModel)]="catagoryName"
+      >
+        <mat-option>None</mat-option>
+        <ng-container *ngFor="let Catagory of Catagories">
+          <mat-option value="{{ Catagory.id }}">{{
+            Catagory.value
+          }}</mat-option>
+        </ng-container>
+      </mat-select>
+      <mat-error>Catagory is Mandatory</mat-error>
+    </mat-form-field>
+  </p>
+
+  <table class="buttons">
+    <tr>
+      <td>
+        <button
+          class="btn1"
+          mat-raised-button
+          type="submit"
+          [disabled]="faqForm.invalid"
+        >
+          Save
+        </button>
+      </td>
+      <td>
+        <button class="btn2" mat-raised-button (click)="onReset()">
+          Reset
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<tr *ngFor="let catagory of catagories">
+  <td>{{ catagory.catagoryField }}</td>
+</tr>

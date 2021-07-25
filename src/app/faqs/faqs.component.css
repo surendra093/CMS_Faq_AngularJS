@@ -1,0 +1,88 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+div.container {
+  margin: 5px 5px;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.mat-toolbar.tool1 {
+  width: 1000px;
+  margin-top: 10px;
+  margin-left: -15px;
+}
+
+.mat-icon.menu {
+  height: 30px !important;
+  width: 40px !important;
+  font-size: 40px !important;
+}
+
+.mat-toolbar.tool2 {
+  height: 40px;
+  /*width: 1320px;*/
+  width: 96vw;
+  margin-top: 0px;
+  border-radius: 10px;
+  border-color: black;
+  border-style: double;
+}
+
+.mat-toolbar.mat-primary {
+  background: white;
+  color: black;
+}
+
+.mat-icon.mat-primary {
+  background: white;
+  color: black;
+}
+
+.example-icon {
+  background: white;
+  border-color: white;
+}
+
+.span.form-group {
+  margin-left: 10px;
+  margin-right: 700px;
+}
+.form-control {
+  border-radius: 20px;
+  border-width: 2.2px;
+  border-color: black;
+}
+
+input[type="text"].form-control {
+  margin-left: 25px;
+  width: 45%;
+  background-image: url("search.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.btn {
+  width: 130px;
+  margin-top: -60px;
+  margin-left: 1170px;
+  background-color: #ffd800;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: #212221;
+  color: white;
+}
+
+button[disabled="disabled"],
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+  color: white !important;
+  background-color: #212221 !important;
+}

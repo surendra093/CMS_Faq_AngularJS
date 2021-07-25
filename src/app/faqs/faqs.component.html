@@ -1,0 +1,53 @@
+<div class="container">
+  <mat-toolbar class="tool1" color="primary">
+    <span
+      ><a href="https://www.veenaworld.com/"
+        ><img
+          src="assets/images/logo.png"
+          alt="logo"
+          width="75"
+          height="50" /></a
+    ></span>
+
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon class="menu" aria-hidden="false" aria-label="Example home icon"
+        >menu</mat-icon
+      >
+    </button>
+
+    &nbsp; &nbsp;
+    <span><b>FAQs</b></span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+
+  <br />
+
+  <mat-toolbar class="tool2">
+    <span><b>HOME</b></span>
+    <mat-icon class="arrow1">chevron_right</mat-icon>
+    <span><b>Catagories</b></span>
+    <mat-icon class="arrow1">chevron_right</mat-icon>
+    <span><b>Faqs</b></span>
+  </mat-toolbar>
+</div>
+
+<br />
+
+<div class="col md-8">
+  <span class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      id="search"
+      placeholder="Search for Faq"
+    />
+  </span>
+  <button class="btn" (click)="addFaqPopUp()">Add New FAQ</button>
+</div>
+
+<br />
+

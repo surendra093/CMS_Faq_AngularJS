@@ -1,0 +1,72 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+div.container {
+  margin: 5px 5px;
+  margin-right: 10px;
+}
+
+.mat-toolbar.tool1 {
+  width: 1000px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.mat-toolbar.mat-primary {
+  background: white;
+  color: black;
+}
+
+.ques-form-field {
+  width: 1025px;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.answer-form-field {
+  width: 1025px;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.catagory-form-field {
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+table.buttons {
+  margin-left: 300px;
+}
+
+.btn1 {
+  width: 200px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: #ffd800;
+  border: 0.5px solid black;
+}
+
+.btn1:hover {
+  background-color: #212221;
+  color: white;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+.btn2 {
+  width: 200px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 15px;
+  background-color: #ffd800;
+  border: 0.5px solid black;
+}
+
+.btn2:hover {
+  background-color: #212221;
+  color: white;
+}
